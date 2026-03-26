@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Assets
+products/
+UI/
+public/products/
+public/*.png
+!public/hero_banner.png
+!public/vite.svg

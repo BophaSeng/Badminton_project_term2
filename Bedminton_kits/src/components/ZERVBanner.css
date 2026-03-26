@@ -1,0 +1,114 @@
+.zerv-banner {
+  padding: 80px 24px;
+  background-color: #0A192F;
+  color: #ffffff;
+}
+
+.zerv-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.zerv-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.zerv-logo {
+  background-color: #0DF259;
+  color: #0A192F;
+  padding: 8px 20px;
+  font-size: 24px;
+  font-weight: 900;
+  display: inline-block;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.zerv-title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.zerv-desc {
+  font-size: 18px;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.zerv-props {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: #0DF259;
+}
+
+.btn-zerv {
+  background-color: #0DF259;
+  color: #0A192F;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.zerv-visuals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.zerv-promo-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.promo-info h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.promo-info p {
+  color: #0DF259;
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .zerv-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .zerv-logo, .btn-zerv {
+    margin: 0 auto;
+  }
+  .zerv-props {
+    align-items: center;
+  }
+}
