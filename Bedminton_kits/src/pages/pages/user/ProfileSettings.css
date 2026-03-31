@@ -1,0 +1,55 @@
+.dashboard-container { background-color: #f8fafc; min-height: 100vh; font-family: sans-serif; }
+.navbar { display: flex; justify-content: space-between; padding: 15px 40px; background: #fff; border-bottom: 1px solid #edf2f7; }
+.logo-highlight { color: #00ff66; }
+.main-layout { display: flex; padding: 40px; gap: 30px; }
+
+/* Sidebar Styles (matching your photo) */
+.sidebar { width: 260px; }
+.profile-card, .promo-card { padding: 25px; border-radius: 12px; margin-bottom: 20px; }
+.profile-card { background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.nav-item { padding: 12px; cursor: pointer; color: #64748b; border-radius: 8px; margin-bottom: 5px; }
+.nav-item.active { background: #00ff66; color: #000; font-weight: bold; }
+.logout-btn { width: 100%; margin-top: 20px; padding: 10px; border: none; background: #f1f5f9; border-radius: 8px; cursor: pointer; }
+.promo-card { background: #0f172a; color: white; }
+.btn-redeem { width: 100%; padding: 12px; background: #00ff66; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+/* Settings Card */
+.page-title { font-size: 28px; font-weight: 800; margin-bottom: 5px; }
+.page-subtitle { color: #64748b; margin-bottom: 30px; }
+.settings-card { background: #fff; border-radius: 15px; padding: 30px; border: 1px solid #e2e8f0; }
+.card-header { display: flex; align-items: center; gap: 10px; border-bottom: none; margin-bottom: 25px; }
+.card-header h3 { margin: 0; font-size: 18px; }
+
+.profile-form-container { display: flex; gap: 40px; align-items: flex-start; }
+
+/* Avatar Circle */
+.avatar-section { text-align: center; }
+.avatar-wrapper { 
+  position: relative; width: 120px; height: 120px; 
+  border: 3px solid #0f172a; border-radius: 50%; 
+  overflow: visible; cursor: pointer; 
+}
+.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.camera-icon { 
+  position: absolute; bottom: 5px; right: 5px; 
+  background: #0f172a; color: white; padding: 5px; 
+  border-radius: 50%; font-size: 12px; 
+}
+.upload-hint { font-size: 11px; color: #94a3b8; margin-top: 15px; line-height: 1.4; }
+
+/* Inputs */
+.inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; }
+.input-group { display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 13px; font-weight: 700; color: #1e293b; }
+.input-group input { 
+  padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; 
+  background: #f8fafc; font-size: 14px; 
+}
+.full-width { grid-column: span 2; }
+
+/* Save Button */
+.button-container { display: flex; justify-content: flex-end; margin-top: 25px; }
+.save-changes-btn { 
+  background: #00ff66; color: #000; font-weight: 800; padding: 15px 30px; 
+  border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,255,102,0.4); 
+}

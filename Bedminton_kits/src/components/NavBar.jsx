@@ -2,10 +2,26 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import './NavBar.css';
+import { useState,useEffect } from 'react';
 
 const NavBar = () => {
     const { cartCount } = useCart();
     const location = useLocation();
+
+    
+    
+    
+   const [loggedInUser, setLoggedInUser] = useState(localStorage.getItem("userProfile"));
+
+    // 2. This effect runs every time the URL changes (location)
+    // It refreshes the loggedInUser state so the icon knows where to go
+    useEffect(() => {
+        const user = localStorage.getItem("userProfile");
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setLoggedInUser(user);
+    }, [location]);
+    const profilePath = loggedInUser ? "/profile" : "/signup";
+
 
     const isActive = (path) => location.pathname === path ? 'active' : '';
 
@@ -49,8 +65,14 @@ const NavBar = () => {
                         {cartCount > 0 && <div className="cart-badge">{cartCount}</div>}
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>
                     </Link>
-                    <Link to="/" className="action-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                    <Link 
+                        to={profilePath} 
+                        className={`action-item ${location.pathname === profilePath ? 'active' : ''}`}
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
                     </Link>
                 </div>
             </div>

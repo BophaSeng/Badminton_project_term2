@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 
 const Shop = () => {
-    const { addToCart } = useCart();
+    useCart();
     const [selectedCategories, setSelectedCategories] = React.useState(['Shoes']);
     const [selectedBrands, setSelectedBrands] = React.useState([]);
     const [sortBy, setSortBy] = React.useState('Best Selling');
