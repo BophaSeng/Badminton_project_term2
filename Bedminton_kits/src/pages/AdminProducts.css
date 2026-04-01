@@ -1,0 +1,214 @@
+/* Refined Admin Products styles */
+.admin-container {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+.admin-main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.overview-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.add-product-btn {
+  background-color: var(--primary) !important;
+  color: white !important;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.add-product-btn:hover {
+  background-color: var(--accent) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px var(--accent-shadow);
+}
+
+.products-container {
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-premium);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-label {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filter-dropdown:hover {
+  border-color: var(--accent-soft);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.inventory-text {
+  font-size: 0.9375rem;
+  color: var(--text-light);
+}
+
+.inventory-text strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Products Table Refinements */
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table th {
+  text-align: left;
+  padding: 24px 40px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: var(--bg-main);
+  border-bottom: 2px solid var(--border-light);
+}
+
+.products-table td {
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.products-table tr:hover {
+  background-color: var(--accent-soft);
+}
+
+.product-img-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid var(--border-light);
+  transition: transform var(--transition-base);
+}
+
+tr:hover .product-img-wrapper {
+  transform: scale(1.05);
+}
+
+.p-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.category-tag {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.loading-state {
+  padding: 100px;
+  text-align: center;
+  color: var(--text-light);
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Stock Bar Refinement */
+.stock-bar-bg {
+  width: 100px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--border-light);
+  overflow: hidden;
+}
+
+.stock-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.stock-text {
+  font-size: 0.875rem;
+  font-weight: 800;
+  margin-top: 8px;
+  display: block;
+}
+
+/* Footer Refinement */
+.admin-footer {
+  margin-top: 80px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.footer-right a {
+  color: var(--text-light);
+  transition: color var(--transition-base);
+}
+
+.footer-right a:hover {
+  color: var(--primary);
+}

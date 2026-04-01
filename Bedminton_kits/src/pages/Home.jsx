@@ -1,10 +1,10 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import USPBar from '../components/USPBar';
-import CategoryGrid from '../components/CategoryGrid';
-import BrandBar from '../components/BrandBar';
-import ProductCarousel from '../components/ProductCarousel';
-import ZERVBanner from '../components/ZERVBanner';
+import Hero from '../components/user/Hero';
+import USPBar from '../components/user/USPBar';
+import CategoryGrid from '../components/user/CategoryGrid';
+import BrandBar from '../components/user/BrandBar';
+import ProductCarousel from '../components/user/ProductCarousel';
+import STEAVBanner from '../components/user/STEAVBanner';
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <CategoryGrid />
       <BrandBar />
       <ProductCarousel />
-      <ZERVBanner />
+      <STEAVBanner />
     </div>
   );
 };

@@ -1,0 +1,105 @@
+.category-section-v2 {
+  padding: 100px 40px;
+  background-color: var(--bg-surface);
+}
+
+.section-title-v2 {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary) !important;
+  margin-bottom: 60px;
+  letter-spacing: -0.02em;
+}
+
+.category-grid-v2 {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+.category-card-v2 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.category-image-v2 {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: var(--bg-main);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-base);
+}
+
+.category-image-v2 img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transition: transform var(--transition-slow);
+}
+
+.category-card-v2:hover .category-image-v2 {
+  background-color: white;
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-hover);
+  transform: translateY(-8px);
+}
+
+.category-card-v2:hover .category-image-v2 img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.category-info-v2 {
+  text-align: center;
+}
+
+.category-info-v2 span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.category-info-v2 h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.category-card-v2:hover .category-info-v2 h3 {
+  color: var(--accent);
+}
+
+@media (max-width: 1200px) {
+  .category-grid-v2 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .category-section-v2 {
+    padding: 60px 20px;
+  }
+  .category-grid-v2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

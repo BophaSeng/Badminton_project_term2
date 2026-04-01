@@ -1,0 +1,194 @@
+.profile-dashboard-page {
+  padding: 80px 40px;
+  background: radial-gradient(circle at top right, var(--accent-soft), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(13, 242, 89, 0.05), transparent 40%),
+              var(--bg-main);
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: start;
+}
+
+.dashboard-content {
+  min-height: 600px;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Settings Specific Styles - Premium Glassmorphism */
+.settings-card {
+  padding: 40px;
+  background: var(--bg-surface);
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.avatar-edit-section {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.avatar-preview-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.settings-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px; /* Squircle for modern look */
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 15px 30px var(--accent-shadow);
+}
+
+.avatar-edit-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.avatar-edit-badge:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+  transform: scale(1.1) rotate(15deg);
+}
+
+.avatar-info h4 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.avatar-info p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-main);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.935rem;
+  transition: all var(--transition-base);
+}
+
+.premium-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  outline: none;
+  background-color: white;
+}
+
+.btn-save-settings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--accent);
+  color: #0A192F;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+  width: fit-content;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-save-settings:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.readonly-input {
+  background-color: var(--border-light) !important;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.loader-small {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(10, 25, 47, 0.2);
+  border-top-color: #0A192F;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.no-activity {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 32px 24px;
+    border-radius: var(--radius-lg);
+  }
+  .profile-title {
+    font-size: 1.5rem;
+  }
+}

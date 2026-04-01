@@ -1,0 +1,70 @@
+.brand-bar {
+  padding: 60px 40px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.brand-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.brand-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-light);
+  letter-spacing: -0.05em;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.brand-logo:hover {
+  color: var(--primary);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.see-all-brands {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--accent-soft);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.see-all-brands:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .brand-container {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-bar {
+    padding: 40px 20px;
+  }
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+}
