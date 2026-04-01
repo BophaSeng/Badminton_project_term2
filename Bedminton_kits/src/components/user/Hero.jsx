@@ -8,18 +8,18 @@ const Hero = () => {
         <img src="/hero_banner.png" alt="Hero Banner" />
       </div>
       <div className="hero-overlay"></div>
-      <div className="hero-content">
+      <div className="hero-content animate-fade-in">
         <span className="new-arrival-badge">New Arrival</span>
         <h1 className="hero-title">
-          VA Collection
+          STEAV Collection
           <span>Play Like a Pro</span>
         </h1>
         <p className="hero-description">
           Discover the latest gear engineered for performance, used by world champions on the professional circuit.
         </p>
         <div className="hero-buttons">
-          <a href="#" className="btn-primary">Shop Collection</a>
-          <a href="#" className="btn-secondary">Watch Promo</a>
+          <a href="#" className="btn-premium-primary">Shop Collection</a>
+          <a href="#" className="btn-premium-secondary" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Watch Promo</a>
         </div>
       </div>
       <div className="hero-slider-dots">

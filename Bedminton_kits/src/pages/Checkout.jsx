@@ -11,7 +11,7 @@ const Checkout = () => {
     const grandTotal = cartTotal + tax;
 
     return (
-        <div className="checkout-page">
+        <div className="checkout-page animate-fade-in">
             <div className="checkout-container">
                 <header className="checkout-header">
                     <div className="breadcrumb">HOME / CART / CHECKOUT</div>

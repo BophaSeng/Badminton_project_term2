@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "https://api.dicebear.com/7.x/shapes/svg?seed=astrox",
+      "name": "Astrox 99 Pro",
+      "subtitle": "Cherry Sunburst / 4U G5",
+      "sku": "AX99-P-CS",
+      "category": "Rackets",
+      "price": "229.00",
+      "stock": 42,
+      "stockLevel": "in"
+    },
+    {
+      "id": 2,
+      "image": "https://api.dicebear.com/7.x/shapes/svg?seed=shb65",
+      "name": "SHB-65Z3 Power Cushion",
+      "subtitle": "White/Red - Size 10",
+      "sku": "SHB65Z3-WR-10",
+      "category": "Shoes",
+      "price": "145.00",
+      "stock": 4,
+      "stockLevel": "low"
+    },
+    {
+      "id": 3,
+      "image": "https://api.dicebear.com/7.x/shapes/svg?seed=boost",
+      "name": "Aerobite Boost Hybrid",
+      "subtitle": "200m Reel - Grey/Yellow",
+      "sku": "BG-AB-BST-R",
+      "category": "Strings",
+      "price": "18.00",
+      "stock": 0,
+      "stockLevel": "out"
+    }
+  ],
+  "orders": [
+    {
+      "id": "#ORD-7291",
+      "date": "Oct 24, 2023, 10:45 AM",
+      "customer": "Liam Anderson",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Liam",
+      "paymentStatus": "PAID",
+      "fulfillment": "SHIPPED",
+      "amount": "342.50"
+    },
+    {
+      "id": "#ORD-7290",
+      "date": "Oct 24, 2023, 09:12 AM",
+      "customer": "Sarah Jenkins",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+      "paymentStatus": "PENDING",
+      "fulfillment": "PROCESSING",
+      "amount": "89.00"
+    },
+    {
+      "id": "#ORD-7289",
+      "date": "Oct 23, 2023, 05:30 PM",
+      "customer": "Marcus Wright",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+      "paymentStatus": "PAID",
+      "fulfillment": "UNFULFILLED",
+      "amount": "1,210.00"
+    },
+    {
+      "id": "#ORD-7288",
+      "date": "Oct 23, 2023, 03:15 PM",
+      "customer": "Sophia Chen",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
+      "paymentStatus": "REFUNDED",
+      "fulfillment": "PROCESSING",
+      "amount": "45.20"
+    },
+    {
+      "id": "#ORD-7287",
+      "date": "Oct 23, 2023, 01:05 PM",
+      "customer": "David Wilson",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+      "paymentStatus": "PAID",
+      "fulfillment": "SHIPPED",
+      "amount": "215.00"
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "email": "user@gmail.com",
+      "name": "Badminton Enthusiast",
+      "role": "user",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=user",
+      "phone": "+1 (555) 000-0000",
+      "location": "New York, USA",
+      "points": 2450
+    },
+    {
+      "id": "a1",
+      "email": "admin@gmail.com",
+      "name": "Alex Morgan",
+      "role": "admin",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+      "points": 0
+    }
+  ]
+}

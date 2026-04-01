@@ -23,7 +23,7 @@ const ProductDetail = () => {
     const sizes = ['3U-G5', '4U-G5', '4U-G6'];
 
     return (
-        <div className="product-detail-page">
+        <div className="product-detail-page animate-fade-in">
             <div className="detail-container">
                 {/* Visuals */}
                 <div className="product-gallery">

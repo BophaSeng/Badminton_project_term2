@@ -2,7 +2,7 @@ import React from 'react';
 import './Shop.css';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/user/ProductCard';
 
 const Shop = () => {
     const { addToCart } = useCart();
@@ -28,13 +28,13 @@ const Shop = () => {
     });
 
     const toggleCategory = (cat) => {
-        setSelectedCategories(prev => 
+        setSelectedCategories(prev =>
             prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
         );
     };
 
     const toggleBrand = (brand) => {
-        setSelectedBrands(prev => 
+        setSelectedBrands(prev =>
             prev.includes(brand) ? prev.filter(b => b !== brand) : [...prev, brand]
         );
     };
@@ -45,7 +45,7 @@ const Shop = () => {
     };
 
     return (
-        <div className="shop-page">
+        <div className="shop-page animate-fade-in">
             <div className="shop-container">
                 {/* Filters Sidebar */}
                 <aside className="filters-sidebar">
@@ -59,9 +59,9 @@ const Shop = () => {
                         <div className="filter-options">
                             {['Rackets', 'Shoes', 'Shuttlecocks', 'Apparel', 'Bags'].map(cat => (
                                 <label key={cat} className="checkbox-label">
-                                    <input 
-                                        type="checkbox" 
-                                        checked={selectedCategories.includes(cat)} 
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedCategories.includes(cat)}
                                         onChange={() => toggleCategory(cat)}
                                     />
                                     {cat}
@@ -75,8 +75,8 @@ const Shop = () => {
                         <div className="filter-options">
                             {['YONEX', 'VICTOR', 'LI-NING', 'FZ FORZA'].map(brand => (
                                 <label key={brand} className="checkbox-label">
-                                    <input 
-                                        type="checkbox" 
+                                    <input
+                                        type="checkbox"
                                         checked={selectedBrands.includes(brand)}
                                         onChange={() => toggleBrand(brand)}
                                     />
@@ -128,10 +128,10 @@ const Shop = () => {
 
                     {filteredProducts.length > 0 && (
                         <div className="pagination">
-                            <button className="page-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                            <button className="page-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg></button>
                             <button className="page-btn active">1</button>
                             <span>...</span>
-                            <button className="page-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                            <button className="page-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg></button>
                         </div>
                     )}
                 </section>

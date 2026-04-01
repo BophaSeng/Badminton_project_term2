@@ -1,0 +1,160 @@
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.sidebar-welcome {
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: white;
+}
+
+.sidebar-welcome h3 {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sidebar-welcome .user-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-nav {
+  padding: 12px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.935rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.nav-item:hover {
+  background-color: var(--bg-main);
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background-color: var(--accent-soft);
+  color: var(--primary);
+}
+
+.active-arrow {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+.logout-item {
+  margin-top: 12px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 20px;
+  color: var(--text-muted);
+}
+
+.logout-item:hover {
+  background-color: #fef2f2;
+  color: #ef4444;
+}
+
+.pro-member-card {
+  background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pro-badge {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.points-display {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.points-value {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Outfit', sans-serif;
+}
+
+.points-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.pro-info {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  max-width: 180px;
+}
+
+.redeem-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent);
+  color: #0A192F;
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 2;
+}
+
+.redeem-btn:hover {
+  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(13, 242, 89, 0.4);
+}
+
+.card-bg-icon {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  opacity: 0.1;
+  transform: rotate(-15deg);
+  color: var(--accent);
+}
