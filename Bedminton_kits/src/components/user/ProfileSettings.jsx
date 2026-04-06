@@ -1,29 +1,117 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Camera, Save } from 'lucide-react';
 
-const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) => {
+const ProfileSettings = () => {
   const fileInputRef = useRef(null);
+
+  const [profile, setProfile] = useState({
+    id: "",
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+    avatar: ""
+  });
+
+  const [saving, setSaving] = useState(false);
+
+  
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    // If no user → create fake (for testing)
+    if (!user) {
+      user = {
+        id: "1",
+        name: "fake",
+        email: "fake1224@gmail.com",
+        phone:"",
+        location: "",
+        avatar: ""
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+    localStorage.setItem("userId", user.id);
+    setProfile(user);
+  }, []);
 
   const triggerFileSelect = () => {
     fileInputRef.current.click();
   };
 
+  
+  const handleChange = (e) => {
+    setProfile({
+      ...profile,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // ✅ Handle avatar
+  const handleAvatar = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setProfile({
+        ...profile,
+        avatar: imageUrl
+      });
+    }
+  };
+
+  const saveProfile = async () => {
+    const userId = localStorage.getItem("userId");
+
+    console.log("User ID:", userId);
+
+    if (!userId) {
+      alert("Cannot save: User ID not found. Please log in again.");
+      return;
+    }
+
+    try {
+      setSaving(true);
+
+      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      
+      localStorage.setItem("user", JSON.stringify(profile));
+
+      alert("Profile saved successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save profile.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <div className="profile-settings-container animate-fade-in">
       <h2 className="section-title">Profile Settings</h2>
-      
+
       <div className="settings-card glass">
+        
         <div className="avatar-edit-section">
           <div className="avatar-preview-wrapper">
             <img
-              src={profile.avatar || "https://api.dicebear.com/7.x/avataaars/svg?seed=User"}
+              src={
+                profile.avatar ||
+                "https://api.dicebear.com/7.x/avataaars/svg?seed=User"
+              }
               className="settings-avatar-img"
               alt="Profile"
             />
-            <button className="avatar-edit-badge" onClick={triggerFileSelect}>
+            <button
+              type="button"
+              className="avatar-edit-badge"
+              onClick={triggerFileSelect}
+            >
               <Camera size={16} />
             </button>
           </div>
+
           <input
             type="file"
             accept="image/*"
@@ -31,6 +119,7 @@ const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) =
             ref={fileInputRef}
             style={{ display: "none" }}
           />
+
           <div className="avatar-info">
             <h4>Profile Picture</h4>
             <p>PNG, JPG or SVG. Max 2MB.</p>
@@ -38,6 +127,7 @@ const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) =
         </div>
 
         <div className="settings-form">
+          
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
@@ -50,6 +140,7 @@ const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) =
                 className="premium-input"
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input
@@ -76,6 +167,7 @@ const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) =
                 className="premium-input"
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="location">Location</label>
               <input
@@ -89,8 +181,9 @@ const ProfileSettings = ({ profile, handleChange, handleAvatar, saveProfile }) =
             </div>
           </div>
 
-          <button 
-            onClick={saveProfile} 
+          <button
+            type="button"
+            onClick={saveProfile}
             className={`btn-save-settings ${saving ? 'saving' : ''}`}
             disabled={saving}
           >
