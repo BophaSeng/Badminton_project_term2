@@ -1,39 +1,42 @@
 import React from 'react';
-import { User, ShoppingBag, Heart, LogOut, Award, ChevronRight } from 'lucide-react';
+import { User, Archive, Heart, LogOut, Award } from 'lucide-react';
 import './ProfileSidebar.css';
 
 const ProfileSidebar = ({ activeTab, setActiveTab, user, onLogout }) => {
   const menuItems = [
     { id: 'settings', label: 'Profile Settings', icon: User },
-    { id: 'orders', label: 'Order History', icon: ShoppingBag },
+    { id: 'orders', label: 'Order History', icon: Archive },
     { id: 'wishlist', label: 'Wishlist', icon: Heart },
   ];
 
   return (
     <aside className="profile-sidebar">
-      <div className="sidebar-welcome glass">
-        <h3>Welcome back,</h3>
-        <p className="user-name">{user?.name || 'Badminton Enthusiast'}</p>
-      </div>
+      <div className="sidebar-card">
+        <div className="sidebar-welcome">
+          <h3>Welcome back,</h3>
+          <p className="user-name">{user?.name || 'Badminton Enthusiast'}</p>
+        </div>
 
-      <nav className="sidebar-nav glass">
-        {menuItems.map((item) => (
-          <button
-            key={item.id}
-            className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
-            onClick={() => setActiveTab(item.id)}
-          >
-            <item.icon size={20} />
-            <span>{item.label}</span>
-            {activeTab === item.id && <ChevronRight size={16} className="active-arrow" />}
+        <nav className="sidebar-nav">
+          {menuItems.map((item) => (
+            <button
+              key={item.id}
+              className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(item.id)}
+            >
+              <item.icon size={24} className="nav-icon" />
+              <span>{item.label}</span>
+            </button>
+          ))}
+          
+          <div className="sidebar-divider"></div>
+
+          <button className="nav-item logout-btn" onClick={onLogout}>
+            <LogOut size={24} className="nav-icon" />
+            <span>Log Out</span>
           </button>
-        ))}
-        
-        <button className="nav-item logout-item" onClick={onLogout}>
-          <LogOut size={20} />
-          <span>Log Out</span>
-        </button>
-      </nav>
+        </nav>
+      </div>
 
       <div className="pro-member-card">
         <div className="pro-badge">PRO MEMBER</div>

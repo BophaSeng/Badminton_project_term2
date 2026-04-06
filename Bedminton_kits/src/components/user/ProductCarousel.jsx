@@ -2,43 +2,44 @@ import React from 'react';
 import './ProductCarousel.css';
 import ProductCard from './ProductCard';
 
+
 const ProductCarousel = () => {
   const products = [
     {
-      id: 101, // Added IDs for card keys and links
+      id: 1, // matches Astrox 88D Pro in db.json
       brand: 'YONEX',
       name: 'Astrox 88D Pro Badminton Racket - Camel Gold',
       price: '200.59',
       oldPrice: '289.95',
       badge: 'SAVE 35%',
       badgeType: 'sale',
-      img: '/products/NF1000Z_Lightning_Yellow_1.webp'
+      image: '/NF1000Z_Lightning_Yellow_1.webp'
     },
     {
-      id: 102,
+      id: 2, // matches Power Cushion
       brand: 'YONEX',
       name: "Power Cushion 65 X3 - Men's Court Shoes",
       price: '99.99',
       badge: 'BESTSELLER',
       badgeType: 'bestseller',
-      img: '/products/ALL_SHBVAZM1_452-1.webp'
+      image: '/ALL_SHBVAZM1_452-1.webp'
     },
     {
-      id: 103,
+      id: 3, // matches Aerobite String
       brand: 'YONEX',
       name: 'Aerobite Hybrid Badminton String - 200m Reel',
       price: '144.50',
       oldPrice: '169.95',
       badge: 'SAVE 15%',
       badgeType: 'sale',
-      img: '/products/AC149_White_2.webp'
+      image: '/AC149_White_2.webp'
     },
     {
-      id: 104,
+      id: 4, // matches Tournament Bag
       brand: 'VICTOR',
       name: 'Tournament Bag BR9609 - 12 Racket Capacity',
       price: '85.00',
-      img: '/products/INT_BA72631WEX_007-1.webp'
+      image: '/INT_BA72631WEX_007-1.webp'
     }
   ];
 

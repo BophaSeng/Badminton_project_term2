@@ -27,7 +27,7 @@ const ProductRow = ({ image, name, subtitle, sku, category, price, stock, stockL
       <td>
         <div className="product-name-cell">
           <span className="p-name">{name}</span>
-          <span className="p-subtitle">{subtitle}</span>
+          <span className="p-subtitle">{subtitle} - {sku}</span>
         </div>
       </td>
       <td className="sku-cell">{sku}</td>
@@ -40,16 +40,16 @@ const ProductRow = ({ image, name, subtitle, sku, category, price, stock, stockL
       <td>
         <div className="stock-cell">
           <div className="stock-bar-bg">
-            <div 
-              className="stock-bar-fill" 
-              style={{ 
-                width: percentage, 
-                backgroundColor: stockLevel === 'out' ? 'var(--danger)' : stockLevel === 'low' ? 'var(--warning)' : 'var(--success)' 
+            <div
+              className="stock-bar-fill"
+              style={{
+                width: percentage,
+                backgroundColor: stockLevel === 'out' ? 'var(--danger)' : stockLevel === 'low' ? 'var(--warning)' : 'var(--success)'
               }}
             ></div>
           </div>
-          <span className="stock-text" style={{ 
-            color: stockLevel === 'out' ? 'var(--danger)' : stockLevel === 'low' ? 'var(--warning)' : 'var(--success)' 
+          <span className="stock-text" style={{
+            color: stockLevel === 'out' ? 'var(--danger)' : stockLevel === 'low' ? 'var(--warning)' : 'var(--success)'
           }}>{statusText}</span>
         </div>
       </td>

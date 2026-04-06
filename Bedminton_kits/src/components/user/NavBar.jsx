@@ -6,7 +6,7 @@ import './NavBar.css';
 
 const NavBar = () => {
     const { cartCount } = useCart();
-    const { user, logout, isAdmin } = useAuth();
+    const { user, isAdmin } = useAuth();
     const location = useLocation();
 
     const isActive = (path) => location.pathname === path ? 'active' : '';
@@ -17,9 +17,7 @@ const NavBar = () => {
                 {/* Logo */}
                 <Link to="/" className="navbar-logo">
                     <div className="logo-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" fill="#0A192F" />
-                        </svg>
+                        <img src="/badminton.svg" alt="Badminton Logo" width="24" height="24" />
                     </div>
                     <div className="logo-text">BADMINTON <span>SHOP</span></div>
                 </Link>
@@ -51,20 +49,9 @@ const NavBar = () => {
                                 {cartCount > 0 && <div className="cart-badge">{cartCount}</div>}
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>
                             </Link>
-                            <Link to="/profile" className="navbar-avatar-link">
-                                <div className="navbar-avatar-wrapper">
-                                    <img 
-                                        src={user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.email}`} 
-                                        alt="Profile" 
-                                        className="navbar-avatar-img"
-                                    />
-                                </div>
+                            <Link to="/profile" className="action-item">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                             </Link>
-                            {!isAdmin && (
-                                <button className="action-item logout-nav-btn" onClick={logout} title="Logout">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" /></svg>
-                                </button>
-                            )}
                         </div>
                     ) : (
                         <>

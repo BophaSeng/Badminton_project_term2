@@ -43,7 +43,7 @@ const CartPage = () => {
                                         <td>
                                             <div className="product-cell">
                                                 <div className="cart-item-img">
-                                                    <img src={item.img} alt={item.name} />
+                                                    <img src={item.image} alt={item.name} />
                                                 </div>
                                                 <div className="cart-item-info">
                                                     <h3>{item.name}</h3>

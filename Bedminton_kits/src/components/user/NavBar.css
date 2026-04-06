@@ -29,7 +29,7 @@
 .logo-icon {
   width: 36px;
   height: 36px;
-  background-color: var(--primary);
+  background-color: var(--accent);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -65,43 +65,27 @@
 .navbar-links a {
   font-family: 'Inter', sans-serif;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.935rem;
+  font-weight: 800;
+  font-size: 1rem;
   color: var(--text-main);
   transition: all var(--transition-base);
   padding: 8px 0;
-  position: relative;
-}
-
-.navbar-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent);
-  transition: width var(--transition-base);
-}
-
-.navbar-links a:hover::after,
-.navbar-links a.active::after {
-  width: 100%;
 }
 
 .navbar-links a.active {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .navbar-search {
   flex: 1;
-  max-width: 500px;
+  max-width: 800px;
   display: flex;
   background-color: var(--bg-main);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   transition: all var(--transition-base);
+  margin: 0 40px;
 }
 
 .navbar-search:focus-within {
@@ -121,19 +105,19 @@
 }
 
 .search-button {
-  background-color: transparent;
+  background-color: var(--accent);
   border: none;
-  padding: 0 20px;
+  padding: 0 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
+  color: var(--primary);
+  transition: opacity var(--transition-fast);
 }
 
 .search-button:hover {
-  color: var(--accent);
+  opacity: 0.9;
 }
 
 .navbar-actions {
@@ -164,8 +148,8 @@
   top: -10px;
   right: -10px;
   background-color: var(--accent);
-  color: white;
-  font-size: 0.65rem;
+  color: var(--primary);
+  font-size: 0.75rem;
   font-weight: 800;
   width: 20px;
   height: 20px;
@@ -173,7 +157,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
+  border: none;
 }
 
 @media (max-width: 1200px) {

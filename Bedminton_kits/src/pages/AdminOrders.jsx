@@ -3,59 +3,12 @@ import { Filter, Download } from 'lucide-react';
 import AdminHeader from '../components/admin/AdminHeader';
 import OrderTable from '../components/admin/OrderTable';
 import AdminFooter from '../components/admin/AdminFooter';
+import db from '../../db.json';
 import './AdminOrders.css';
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const initialMockOrders = [
-    {
-      id: '#ORD-7291',
-      date: 'Oct 24, 2023, 10:45 AM',
-      customer: 'Liam Anderson',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Liam',
-      paymentStatus: 'PAID',
-      fulfillment: 'SHIPPED',
-      amount: '$342.50'
-    },
-    {
-      id: '#ORD-7290',
-      date: 'Oct 24, 2023, 09:12 AM',
-      customer: 'Sarah Jenkins',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
-      paymentStatus: 'PENDING',
-      fulfillment: 'PROCESSING',
-      amount: '$89.00'
-    },
-    {
-      id: '#ORD-7289',
-      date: 'Oct 23, 2023, 05:30 PM',
-      customer: 'Marcus Wright',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus',
-      paymentStatus: 'PAID',
-      fulfillment: 'UNFULFILLED',
-      amount: '$1,210.00'
-    },
-    {
-      id: '#ORD-7288',
-      date: 'Oct 23, 2023, 03:15 PM',
-      customer: 'Sophia Chen',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia',
-      paymentStatus: 'REFUNDED',
-      fulfillment: 'PROCESSING',
-      amount: '$45.20'
-    },
-    {
-      id: '#ORD-7287',
-      date: 'Oct 23, 2023, 01:05 PM',
-      customer: 'David Wilson',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David',
-      paymentStatus: 'PAID',
-      fulfillment: 'SHIPPED',
-      amount: '$215.00'
-    }
-  ];
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -69,11 +22,15 @@ const AdminOrders = () => {
           }));
           setOrders(formattedData);
         } else {
-          setOrders(initialMockOrders);
+          throw new Error('API response not ok');
         }
       } catch (error) {
-        console.warn('API not available, using mock data');
-        setOrders(initialMockOrders);
+        console.warn('API not available, using mock data from db.json', error);
+        const formattedData = db.orders.map(o => ({
+          ...o,
+          amount: o.amount.toString().startsWith('$') ? o.amount : `$${o.amount}`
+        }));
+        setOrders(formattedData);
       } finally {
         setLoading(false);
       }
