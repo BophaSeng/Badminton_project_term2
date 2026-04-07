@@ -15,7 +15,7 @@
 
 ---
 
-## ✨ Features
+## Our Features
 
 | # | Feature | Side |
 |---|---------|------|
@@ -50,7 +50,7 @@ src/
 
 ---
 
-## 💾 LocalStorage Keys
+## LocalStorage Keys
 
 | Key | Data Stored |
 |-----|-------------|
@@ -79,10 +79,13 @@ git clone https://github.com/BophaSeng/Badminton_project_term2.git
 # 2. Navigate into the project
 cd Badminton_project_term2
 
-# 3. Install dependencies
+# 3. running local storage
+npx json-server db.json --port 3001
+
+# 4. Install dependencies
 npm install
 
-# 4. Start the development server
+# 5. Start the development server
 npm run dev
 ```
 
