@@ -6,6 +6,7 @@ import AdminHeader from '../components/admin/AdminHeader';
 import ProductTable from '../components/admin/ProductTable';
 import ProductFilterBar from '../components/admin/ProductFilterBar';
 import AdminFooter from '../components/admin/AdminFooter';
+import db from '../../db.json';
 import './AdminProducts.css';
 
 const AdminProducts = () => {
@@ -23,7 +24,12 @@ const AdminProducts = () => {
       }));
       setProducts(formattedData);
     } catch (error) {
-      console.error('Failed to fetch products:', error);
+      console.warn('API fetch failed, using mock data from db.json', error);
+      const formattedData = db.products.map(p => ({
+        ...p,
+        price: p.price.toString().startsWith('$') ? p.price : `$${p.price}`
+      }));
+      setProducts(formattedData);
     } finally {
       setLoading(false);
     }

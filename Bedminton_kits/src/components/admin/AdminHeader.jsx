@@ -11,7 +11,9 @@ const AdminHeader = () => {
     <header className="admin-header glass">
       <div className="admin-logo">
         <Link to="/" className="logo-link">
-          <div className="logo-icon">🏸</div>
+          <div className="logo-icon">
+            <img src="/badminton.svg" alt="Logo" width="24" height="24" />
+          </div>
           <span className="logo-text">BADMINTON<span style={{ color: 'var(--accent)' }}>SHOP</span></span>
         </Link>
       </div>

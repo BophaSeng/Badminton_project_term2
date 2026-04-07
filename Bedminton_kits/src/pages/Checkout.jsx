@@ -80,7 +80,7 @@ const Checkout = () => {
                                 {cartItems.map(item => (
                                     <div key={item.id} className="mini-item">
                                         <div className="mini-img">
-                                            <img src={item.img} alt={item.name} />
+                                            <img src={item.image} alt={item.name} />
                                         </div>
                                         <div className="mini-info">
                                             <h4>{item.name}</h4>

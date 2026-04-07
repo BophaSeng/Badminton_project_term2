@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
                 </span>
             )}
             <Link to={`/product/${product.id}`} className="product-image">
-                <img src={product.img} alt={product.name} />
+                <img src={product.image} alt={product.name} />
             </Link>
             <div className="product-brand">{product.brand}</div>
             <h3 className="product-name">{product.name}</h3>

@@ -3,23 +3,15 @@ import './Shop.css';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/user/ProductCard';
+import db from '../../db.json';
 
 const Shop = () => {
     const { addToCart } = useCart();
-    const [selectedCategories, setSelectedCategories] = React.useState(['Shoes']);
+    const products = db.products;
+    const loading = false;
+    const [selectedCategories, setSelectedCategories] = React.useState([]);
     const [selectedBrands, setSelectedBrands] = React.useState([]);
     const [sortBy, setSortBy] = React.useState('Best Selling');
-
-    const products = [
-        { id: 1, brand: 'YONEX', category: 'Rackets', name: 'Astrox 88D Pro Badminton Racket - Camel Gold', price: '200.59', oldPrice: '289.95', badge: 'SAVE 35%', badgeType: 'sale', img: '/products/NF700P_Midnight_Purple_1.webp' },
-        { id: 2, brand: 'YONEX', category: 'Shoes', name: "Power Cushion 65 X3 - Men's Court Shoes", price: '99.99', badge: 'NEW ARRIVAL', badgeType: 'bestseller', img: '/products/SBAZ2M_FLASHGREEN_2.webp' },
-        { id: 3, brand: 'YONEX', category: 'Shoes', name: 'Aerobite Hybrid Badminton String - 200m Reel', price: '144.50', oldPrice: '169.95', badge: 'SAVE 15%', badgeType: 'sale', img: '/products/AC102_Wine_Red_1.webp' },
-        { id: 4, brand: 'VICTOR', category: 'Bags', name: 'Tournament Bag BR9609 - 12 Racket Capacity', price: '85.00', img: '/products/INT_BA72631WEX_007-1.webp' },
-        { id: 5, brand: 'VICTOR', category: 'Rackets', name: 'Thruster K HMR L Racket - Blue/Orange', price: '112.00', oldPrice: '140.00', badge: 'SAVE 20%', badgeType: 'sale', img: '/racket.png' },
-        { id: 6, brand: 'YONEX', category: 'Shuttlecocks', name: 'AS-50 Tournament Grade Shuttlecocks (1 Dozen)', price: '34.99', img: '/bags.png' },
-        { id: 7, brand: 'ASICS', category: 'Shoes', name: 'Gel-Rocket 10 Court Shoes - White/Gunmetal', price: '79.50', img: '/shoes.png' },
-        { id: 8, brand: 'LI-NING', category: 'Apparel', name: 'Pro Series Lightweight Jersey - Olympic Edition', price: '35.00', oldPrice: '58.30', badge: 'SAVE 40%', badgeType: 'sale', img: '/racket.png' },
-    ];
 
     const filteredProducts = products.filter(p => {
         const catMatch = selectedCategories.length === 0 || selectedCategories.includes(p.category);
@@ -115,7 +107,9 @@ const Shop = () => {
                     </div>
 
                     <div className="shop-grid">
-                        {filteredProducts.length > 0 ? (
+                        {loading ? (
+                            <div className="loading-state">Loading products...</div>
+                        ) : filteredProducts.length > 0 ? (
                             filteredProducts.map((product) => (
                                 <ProductCard key={product.id} product={product} />
                             ))
