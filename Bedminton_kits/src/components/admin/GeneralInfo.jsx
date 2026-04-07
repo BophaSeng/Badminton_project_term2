@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bold, Italic, List, Link } from 'lucide-react';
 
-const GeneralInfo = () => {
+const GeneralInfo = ({ data, updateData }) => {
   return (
     <div className="admin-card">
       <div className="card-header">
@@ -11,7 +11,12 @@ const GeneralInfo = () => {
       <div className="card-body">
         <div className="form-group">
           <label>Product Name</label>
-          <input type="text" placeholder="e.g. Carbonex 8000 Plus" />
+          <input
+            type="text"
+            placeholder="e.g. Carbonex 8000 Plus"
+            value={data.name}
+            onChange={(e) => updateData('name', e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label>Description</label>
@@ -22,12 +27,22 @@ const GeneralInfo = () => {
               <button type="button"><List size={16} /></button>
               <button type="button"><Link size={16} /></button>
             </div>
-            <textarea placeholder="Write product description here..." rows="6"></textarea>
+            <textarea
+              placeholder="Write product description here..."
+              rows="6"
+              value={data.description}
+              onChange={(e) => updateData('description', e.target.value)}
+            ></textarea>
           </div>
         </div>
         <div className="form-group">
           <label>SKU</label>
-          <input type="text" placeholder="e.g. YX-CB-8000" />
+          <input
+            type="text"
+            placeholder="e.g. YX-CB-8000"
+            value={data.sku}
+            onChange={(e) => updateData('sku', e.target.value)}
+          />
         </div>
       </div>
     </div>

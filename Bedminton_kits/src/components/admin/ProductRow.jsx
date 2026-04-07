@@ -1,18 +1,17 @@
 import React from 'react';
 import { Pencil, Trash2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const ProductRow = ({ image, name, subtitle, sku, category, price, stock, stockLevel }) => {
-  // Determine stock bar color and percentage
-  let barColor = '#22c55e'; // Green
+const ProductRow = ({ id, image, name, subtitle, sku, category, price, stock, stockLevel, onDelete }) => {
+  const navigate = useNavigate();
+
   let percentage = '100%';
   let statusText = `${stock} In Stock`;
 
   if (stockLevel === 'low') {
-    barColor = '#f97316'; // Orange
     percentage = '30%';
     statusText = `${stock} Low Stock`;
   } else if (stockLevel === 'out') {
-    barColor = '#ef4444'; // Red
     percentage = '10%';
     statusText = 'Out of Stock';
   }
@@ -32,7 +31,7 @@ const ProductRow = ({ image, name, subtitle, sku, category, price, stock, stockL
       </td>
       <td className="sku-cell">{sku}</td>
       <td>
-        <span className={`category-tag ${category.toLowerCase()}`}>
+        <span className={`category-tag ${category ? category.toLowerCase() : ''}`}>
           {category}
         </span>
       </td>
@@ -54,8 +53,12 @@ const ProductRow = ({ image, name, subtitle, sku, category, price, stock, stockL
         </div>
       </td>
       <td className="actions-cell">
-        <button className="icon-btn edit"><Pencil size={18} /></button>
-        <button className="icon-btn delete"><Trash2 size={18} /></button>
+        <button className="icon-btn edit" title="Edit product" onClick={() => navigate(`/admin/products/edit/${id}`)}>
+          <Pencil size={18} />
+        </button>
+        <button className="icon-btn delete" title="Delete product" onClick={onDelete}>
+          <Trash2 size={18} />
+        </button>
       </td>
     </tr>
   );

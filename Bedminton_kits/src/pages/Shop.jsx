@@ -1,23 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Shop.css';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/user/ProductCard';
-import db from '../../db.json';
+import { api } from '../utils/api';
 
 const Shop = () => {
     const { addToCart } = useCart();
-    const products = db.products;
-    const loading = false;
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedCategories, setSelectedCategories] = React.useState([]);
     const [selectedBrands, setSelectedBrands] = React.useState([]);
     const [sortBy, setSortBy] = React.useState('Best Selling');
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const data = await api.get('products');
+                setProducts(data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProducts();
+    }, []);
 
     const filteredProducts = products.filter(p => {
         const catMatch = selectedCategories.length === 0 || selectedCategories.includes(p.category);
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
         return catMatch && brandMatch;
     });
+
 
     const toggleCategory = (cat) => {
         setSelectedCategories(prev =>

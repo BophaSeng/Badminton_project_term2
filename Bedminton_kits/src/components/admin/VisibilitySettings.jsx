@@ -1,7 +1,7 @@
 import React from 'react';
 import { Eye } from 'lucide-react';
 
-const VisibilitySettings = () => {
+const VisibilitySettings = ({ data, updateData }) => {
   return (
     <div className="admin-card">
       <div className="card-header">

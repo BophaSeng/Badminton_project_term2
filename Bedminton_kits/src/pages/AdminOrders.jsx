@@ -3,7 +3,7 @@ import { Filter, Download } from 'lucide-react';
 import AdminHeader from '../components/admin/AdminHeader';
 import OrderTable from '../components/admin/OrderTable';
 import AdminFooter from '../components/admin/AdminFooter';
-import db from '../../db.json';
+import { api } from '../utils/api';
 import './AdminOrders.css';
 
 const AdminOrders = () => {
@@ -13,24 +13,15 @@ const AdminOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:3001/orders');
-        if (response.ok) {
-          const data = await response.json();
-          const formattedData = data.map(o => ({
-            ...o,
-            amount: o.amount.toString().startsWith('$') ? o.amount : `$${o.amount}`
-          }));
-          setOrders(formattedData);
-        } else {
-          throw new Error('API response not ok');
-        }
-      } catch (error) {
-        console.warn('API not available, using mock data from db.json', error);
-        const formattedData = db.orders.map(o => ({
+        const data = await api.get('orders');
+        const formattedData = data.map(o => ({
           ...o,
           amount: o.amount.toString().startsWith('$') ? o.amount : `$${o.amount}`
         }));
         setOrders(formattedData);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+        alert('Failed to fetch orders. Please ensure the backend server is running.');
       } finally {
         setLoading(false);
       }
@@ -38,6 +29,7 @@ const AdminOrders = () => {
 
     fetchOrders();
   }, []);
+
 
   return (
     <div className="admin-container animate-fade-in">

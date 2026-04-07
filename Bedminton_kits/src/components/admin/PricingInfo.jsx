@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PricingInfo = () => {
+const PricingInfo = ({ data, updateData }) => {
   return (
     <div className="admin-card">
       <div className="card-header">
@@ -10,11 +10,23 @@ const PricingInfo = () => {
       <div className="card-body pricing-grid">
         <div className="form-group">
           <label>Base Price ($)</label>
-          <input type="number" placeholder="0.00" step="0.01" />
+          <input
+            type="number"
+            placeholder="0.00"
+            step="0.01"
+            value={data.price}
+            onChange={(e) => updateData('price', e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label>Sale Price ($)</label>
-          <input type="number" placeholder="0.00" step="0.01" />
+          <input
+            type="number"
+            placeholder="0.00"
+            step="0.01"
+            value={data.oldPrice}
+            onChange={(e) => updateData('oldPrice', e.target.value)}
+          />
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import Checkout from './pages/Checkout'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminProducts from './pages/AdminProducts'
 import AddProduct from './pages/AddProduct'
+import EditProduct from './pages/EditProduct'
 import AdminOrders from './pages/AdminOrders'
 import Profile from './pages/Profile'
 import LoginPage from './pages/LoginPage'
@@ -56,6 +57,14 @@ const AppContent = () => {
             element={
               <ProtectedRoute>
                 <AddProduct />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/products/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditProduct />
               </ProtectedRoute>
             }
           />

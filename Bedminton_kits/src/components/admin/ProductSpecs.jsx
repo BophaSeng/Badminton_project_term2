@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const ProductSpecs = () => {
+const ProductSpecs = ({ brand, category, onUpdate }) => {
   return (
     <div className="admin-card">
       <div className="card-header">
@@ -15,7 +15,7 @@ const ProductSpecs = () => {
             <button className="add-link">+ NEW BRAND</button>
           </div>
           <div className="select-wrapper">
-            <select>
+            <select value={brand} onChange={(e) => onUpdate('brand', e.target.value)}>
               <option>Select Brand</option>
               <option>Yonex</option>
               <option>Victor</option>
@@ -30,11 +30,13 @@ const ProductSpecs = () => {
             <button className="add-link">+ NEW CATEGORY</button>
           </div>
           <div className="select-wrapper">
-            <select>
+            <select value={category} onChange={(e) => onUpdate('category', e.target.value)}>
               <option>Select Category</option>
               <option>Rackets</option>
               <option>Shoes</option>
-              <option>Strings</option>
+              <option>Apparel</option>
+              <option>Bags</option>
+              <option>Shuttlecocks</option>
             </select>
             <ChevronDown className="select-arrow" size={16} />
           </div>

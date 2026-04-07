@@ -24,13 +24,10 @@ const AdminProducts = () => {
       }));
       setProducts(formattedData);
     } catch (error) {
-      console.warn('API fetch failed, using mock data from db.json', error);
-      const formattedData = db.products.map(p => ({
-        ...p,
-        price: p.price.toString().startsWith('$') ? p.price : `$${p.price}`
-      }));
-      setProducts(formattedData);
+      console.error('Error fetching products:', error);
+      alert('Failed to fetch products. Please ensure the backend server is running.');
     } finally {
+
       setLoading(false);
     }
   };

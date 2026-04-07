@@ -1,18 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductDetail.css';
 import { useCart } from '../context/CartContext';
 import { useParams, Link } from 'react-router-dom';
-import db from '../../db.json';
+import { api } from '../utils/api';
 
 const ProductDetail = () => {
     const { id } = useParams();
     const { addToCart } = useCart();
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [selectedSize, setSelectedSize] = useState('3U-G5');
 
-    // Direct lookup from db.json instead of API fetch to ensure it works without a backend server
-    const product = db.products.find(p => p.id === parseInt(id));
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const data = await api.get(`products/${id}`);
+                setProduct(data);
+            } catch (error) {
+                console.error('Error fetching product:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProduct();
+    }, [id]);
 
-    if (!product) return <div className="product-detail-page animate-fade-in"><div style={{padding: '4rem', textAlign: 'center'}}>Product not found. <Link to="/shop">Return to Shop</Link></div></div>;
+    if (loading) return <div className="product-detail-page animate-fade-in"><div style={{ padding: '4rem', textAlign: 'center' }}>Loading product...</div></div>;
+
+    if (!product) return <div className="product-detail-page animate-fade-in"><div style={{ padding: '4rem', textAlign: 'center' }}>Product not found. <Link to="/shop">Return to Shop</Link></div></div>;
+
 
     const thumbnails = product.thumbnails || [product.image, product.image, product.image].filter(Boolean);
 
@@ -59,8 +75,8 @@ const ProductDetail = () => {
                         <span className="variant-label">Weight / Grip Size</span>
                         <div className="variant-chips">
                             {sizes.map(size => (
-                                <button 
-                                    key={size} 
+                                <button
+                                    key={size}
                                     className={`chip ${selectedSize === size ? 'active' : ''}`}
                                     onClick={() => setSelectedSize(size)}
                                 >
@@ -71,17 +87,17 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="stock-status">
-                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                         {product.stock > 0 ? `In Stock (${product.stock}) - 24h Shipping` : 'Out of Stock'}
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                        {product.stock > 0 ? `In Stock (${product.stock}) - 24h Shipping` : 'Out of Stock'}
                     </div>
 
                     <div className="detail-actions">
                         <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>
                             Add to Cart
                         </button>
                         <button className="wishlist-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
                         </button>
                     </div>
                 </div>
