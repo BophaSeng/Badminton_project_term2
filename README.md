@@ -11,5 +11,7 @@
 ###           3. Rinn layheang
 
 
+# Please read the README.md file inside our Bedminton_kits folder for more information and how to run.
+
 
 
