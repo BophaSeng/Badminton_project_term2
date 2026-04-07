@@ -1,0 +1,133 @@
+/* App.css */
+
+/* General Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card Style */
+.card {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Heading */
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2f3640;
+}
+
+/* Avatar */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #4cd137;
+}
+
+/* File Input */
+input[type="file"] {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2f3640;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4cd137;
+}
+
+/* Save Button */
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4cd137;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #44bd32;
+}
+
+.save-btn:disabled {
+  background-color: #dcdde1;
+  cursor: not-allowed;
+}
+
+/* Activity History */
+.card h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #2f3640;
+}
+
+.card ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.card p {
+  font-style: italic;
+  color: #718093;
+  text-align: center;
+}
+
+/* Responsive */
+@media(max-width: 480px){
+  .card {
+    padding: 20px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .save-btn {
+    font-size: 14px;
+  }
+}
